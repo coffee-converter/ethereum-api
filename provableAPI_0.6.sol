@@ -1316,11 +1316,6 @@ contract usingProvable {
         return safer_ecrecover(_hash, v, r, s);
     }
 
-    function safeMemoryCleaner() internal pure {
-        assembly {
-            let fmem := mload(0x40)
-            codecopy(fmem, codesize(), sub(msize(), fmem))
-        }
-    }
+    function safeMemoryCleaner() internal pure {}
 }
 // </provableAPI>
